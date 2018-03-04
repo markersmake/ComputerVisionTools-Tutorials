@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 threshold = 0.2
-kernel5 = cv2.getStructureElement(cv2.MORPH_ELLIPSE,(20,20))
+kernel5 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(20,20))
 lab_img = None
 x_co = 0
 y_co = 0
@@ -44,9 +44,10 @@ while True:
 
     res = cv2.cvtColor(lab_img, cv2.COLOR_LAB2BGR)
     cv2.putText(mask,"L:" + str(L)+" A:"+str(A)+" B:"+str(B), (10,30), cv2.FONT_HERSHEY_PLAIN, 2.0,(255,255,255), thickness = 1)
-    cv2.imshow(camera, mask)
-    cv2.imshow(camera, src)
+    cv2.imshow("camera", mask)
+    cv2.imshow("camera2", src)
     src_segmented = cv2.add(src,src,mask=mask)
     cv2.imshow("camera3", src_segmented)
-    if cv2.waitkey(10) == 27:
+    if cv2.waitKey(10) == 27:
         break
+    

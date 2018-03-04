@@ -34,18 +34,20 @@ cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 while True:
     ret, src = cam.read()
-    src =cv2.blur("farmCircles.jpg", (3,3))
+    src =cv2.blur(src, (3,3))
     hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
     cv2.setMouseCallback("camera2", on_mouse, 0)
 
-    min_color = np.array([H-thr_H, S-thr_S,V-thr_V])
-    max_color = np.array([H+thr_H, S+thr_S,V-thr_V])
+    min_color = np.array([H-thr_H, S-thr_S, V-thr_V])
+    max_color = np.array([H+thr_H, S+thr_S, V-thr_V])
     mask = cv2.inRange(hsv, min_color, max_color)
-    mask = cv2.morphology(mask, cv2.MORPH_CLOSE, kernel5)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel5)
 
-    cv2.putText(mask,"H: " + str(H) +" S:"+str(S)+" V:"+str(V), (10,30), cv2.FONT_HERSHEY_PLAIN, 2.0(255,255,255), thickness = 1)
+    cv2.putText(mask,"H: " + str(H) +" S:"+str(S)+" V:"+str(V), (10,30), cv2.FONT_HERSHEY_PLAIN, 2.0, (255,255,255), thickness = 1)
     cv2.imshow("camera", mask)
     cv2.imshow("camera2", src)
+    
     src_segmented= cv2.add(src,src,mask=mask)
+    cv2.imshow("camera3", src_segmented)
     if cv2.waitKey(10) == 27:
         break
