@@ -23,3 +23,4 @@ This algorithm reduces the image to grayscale and identifies the peaks and valle
 (https://docs.opencv.org/3.3.1/d3/db4/tutorial_py_watershed.html) 
 Segmentation
 This folder has two different methods of segmentation that can be used with video or camera feeds. One by HSV, which stands for Hue, Saturation, and Value. This method provides the widest range of color since it is 3 dimensional in value. Another is by LAB, which is still 2D like the normal RGB color array, but it incorporates more values by giving more possibilities, like purple, yellow, and baby blue. The final file is the same as the HSV file; however, it updates the frames more often.
+(https://github.com/guidefreitas/color_segmentation.git)
