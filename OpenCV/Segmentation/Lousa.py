@@ -35,12 +35,12 @@ cv2.namedWindow("camera2", 2)
 cv2.namedWindow("camera3", 3)
 
 #cam
-cam = cv2.VideoCapture(0)
-cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+cap = cv2.VideoCapture("Bristle Farm Corn Harvest. Amazing drone footage. Watch the whole process!.mp4")
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 while True:
-    ret, src = cam.read()
+    ret, src = cap.read()
     """
     plt.subplot(121),plt.imshow(src),plt.title('Original')
     plt.xticks([]), plt.yticks([])

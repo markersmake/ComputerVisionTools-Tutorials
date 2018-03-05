@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-img = cv2.imread('farmCircles.jpg')
+img = cv2.imread('cornField.jpg')
 Z = img.reshape((-1,3))
 
 Z = np.float32(Z)

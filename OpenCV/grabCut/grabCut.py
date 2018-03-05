@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-img = cv2.imread('soccerPlayer.jpg')
+img = cv2.imread('soybean.jpg')
 mask = np.zeros(img.shape[:2], np.uint8)
 
 bgdModel = np.zeros((1,65), np.float64)

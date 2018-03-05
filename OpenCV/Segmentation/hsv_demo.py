@@ -28,13 +28,13 @@ cv2.namedWindow("camera", 1)
 cv2.namedWindow("camera2", 2)
 cv2.namedWindow("camera3", 3)
 
-cam = cv2.VideoCapture(0)
-cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+cap = cv2.VideoCapture("Bristle Farm Corn Harvest. Amazing drone footage. Watch the whole process!.mp4")
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 while True:
-    ret, src = cam.read()
-    src =cv2.blur(src, (3,3))
+    ret, src = cap.read()
+    src = cv2.blur(src, (3,3))
     hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
     cv2.setMouseCallback("camera2", on_mouse, 0)
 
